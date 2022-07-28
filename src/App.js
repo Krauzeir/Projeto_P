@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Banner from './components/Banner/banner';
+import Lista from './components/Lista';
+import Titulo from './components/Titulo';
 
 function App() {
+
+  const listas = [
+    {
+      nome: 'Celulares',
+      corPrimaria: '#57C278',
+      corSecundaria: '#D9F2E9',
+    },
+    {
+      nome: 'Consoles',
+      corPrimaria: '#82CFFA',
+      corSecundaria: '#E8F8FF',
+    },
+    {
+      nome: 'Jogos',
+      corPrimaria: '#A6D157',
+      corSecundaria: '#F0F8E2',
+    },
+    {
+      nome: 'Camisas',
+      corPrimaria: '#E06869',
+      corSecundaria: '#FDE7E8',
+    }
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Banner />
+      <Titulo />
+      {listas.map(lista => <Lista key={lista.nome} nome={lista.nome} corPrimaria={lista.corPrimaria} corSecundaria={lista.corSecundaria}/>)}
     </div>
   );
 }
